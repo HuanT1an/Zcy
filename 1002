@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stack>
+#include <string>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+	for(int i = 1; i <= n; i++) {
+		string A, B;
+		stack<int> st;
+		cin >> A >> B;
+		string a = A, b = B;
+		string str = "";
+		for(int j = 0; j < abs((int)(A.length() - B.length())); j++) str += "0";
+		A.length() > B.length() ? B = str + B : A = str + A; 
+		int carry = 0;
+		for(int k = A.length() - 1; k >= 0; k--) {
+			int temp = A[k] - '0' + B[k] - '0' + carry;
+			carry = temp / 10;
+			temp %= 10;
+			st.push(temp);
+		}
+		if(carry) st.push(carry); 
+		cout << "Case " << i << ":" << endl;
+		cout << a << " + " << b << " = ";
+		while(!st.empty()) {
+			cout << st.top();
+			st.pop();
+		}
+		cout << endl;
+		if(i != n) cout << endl;
+	}
+	return 0;
+}

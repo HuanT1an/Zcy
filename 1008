@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int N;
+	while (cin >> N&&N!=0)
+	{
+		int sum; sum = 0;
+		sum += 5 * N;
+		int now = 0;
+		int temp;
+		while (N--)
+		{
+			cin >> temp;
+			if (temp > now)
+			{
+				sum += 6 * (temp - now);
+				now = temp;
+			}
+			if (temp < now)
+
+			{
+				sum += 4 * (now - temp);
+				now = temp;
+			}
+		}
+		cout << sum << endl;
+	}
+}

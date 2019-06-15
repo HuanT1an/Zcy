@@ -1,0 +1,15 @@
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+int main()
+{
+  int t,n;
+  scanf("%d",&t);
+  while(t--)
+  {
+    scanf("%d",&n);
+    printf("%lld\n",(long long)((double)log10(sqrt(2*3.1415926535*n))+(double)n*log10(n/2.718281828459))+1);
+  }
+  return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+long long int gcd(long long int a,long long int b){
+	return a%b? gcd(b, a%b): b;
+}
+long long int lcm(long long int a,long long int b){
+	return a*b/gcd(a, b);
+}
+int main(int argc, char const *argv[]){
+	long long int N, ans, n, tmp;
+	cin>>N;
+	while(N--){
+		cin>>n;
+		cin>>ans;
+		for(int i = 1; i < n; i ++){
+			cin>>tmp;
+			ans = lcm(ans, tmp);
+		}
+		cout<<ans<<endl;
+	}
+	return 0;
+}

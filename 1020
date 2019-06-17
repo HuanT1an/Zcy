@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
+void Fix(string& s)
+{
+	int num,pos;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] == s[i + 1])
+		{
+			pos = i;
+			num=2;
+			for (int k = 2; s[i] == s[i + k]; k++)
+				num++;
+			string temp;
+			temp = s[i];
+			s = s.erase(pos, num);
+			//temp = num + s[i];
+			stringstream tempNum;
+			string p;
+			tempNum << num;
+			tempNum >> p;
+			temp = p + temp;
+			s = s.insert(pos, temp);
+			//s = s.insert(pos, 1, (char)num);
+			pos = 0;
+			i == -1;
+		}
+	}
+
+}
+
+int main()
+{
+	int n;
+	cin >> n;
+	string s;
+	while (n--)
+	{
+		cin >> s;
+		Fix(s);
+		cout << s << endl;
+	}
+}
+
